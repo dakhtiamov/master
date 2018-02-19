@@ -1,0 +1,13 @@
+###################Enable integration with Graphite:#######################
+
+# Setting for enabling all supported metrics.
+metrics.enabled=true
+# Enable the Graphite integration. Default is 'false'.
+metrics.graphite.enabled=true
+# The IP and port of the Graphite server on the format <hostname or IP address>:<port number>.
+# The default port number for Graphite is 2003.
+metrics.graphite.server=$IP:$PORT
+# How often to send data. Default is 3 minutes.
+metrics.graphite.interval=3m
+# Prefix for Neo4j metrics on Graphite server.
+metrics.prefix=xx_neo4j_cluster_xxx
