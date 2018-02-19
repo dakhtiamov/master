@@ -11,3 +11,32 @@ metrics.graphite.server=$IP:$PORT
 metrics.graphite.interval=3m
 # Prefix for Neo4j metrics on Graphite server.
 metrics.prefix=xx_neo4j_cluster_xxx
+
+
+###################GET SERVER ROLE:#######################
+#cypher-shell
+CALL dbms.cluster.routing.getServers();
+CALL dbms.cluster.role();
+#HTTP ENDPOINTS
+/db/manage/server/core/writable
+/db/manage/server/core/read-only
+/db/manage/server/core/available
+
+curl -v localhost:7474/db/manage/server/core/writable
+* About to connect() to localhost port 7474 (#0)
+*   Trying ::1...
+* connected
+* Connected to localhost (::1) port 7474 (#0)
+> GET /db/manage/server/core/writable HTTP/1.1
+> User-Agent: curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8r zlib/1.2.5
+> Host: localhost:7474
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Type: text/plain
+< Access-Control-Allow-Origin: *
+< Transfer-Encoding: chunked
+< Server: Jetty(6.1.25)
+<
+* Connection #0 to host localhost left intact
+true* Closing connection #0 
